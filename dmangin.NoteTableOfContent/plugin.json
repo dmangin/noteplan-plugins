@@ -1,0 +1,73 @@
+{
+    "noteplan.minAppVersion": "3.4.0",
+    "macOS.minVersion": "10.13.0",
+    "plugin.id": "dmangin.TableOfContents",
+    "plugin.name": "📑 Table of Contents",
+    "plugin.description": "Insert or refresh a clickable Table of Contents in the current note, linking each heading via noteplan:// URLs.",
+    "plugin.author": "dmangin",
+    "plugin.version": "1.0.0",
+    "plugin.script": "index.js",
+    "plugin.isRemote": "false",
+    "plugin.commands": [
+        {
+            "name": "Insert/Update Table of Contents",
+            "description": "Inserts a TOC under the first H1 heading, or refreshes it if already present.",
+            "jsFunction": "insertTableOfContents",
+            "alias": ["toc", "insertTOC", "updateTOC"],
+            "arguments": []
+        },
+        {
+            "name": "Remove Table of Contents",
+            "description": "Removes the existing TOC block from the current note.",
+            "jsFunction": "removeTableOfContents",
+            "alias": ["removeTOC"],
+            "arguments": []
+        }
+    ],
+    "plugin.settings": [
+        {
+            "type": "heading",
+            "title": "Table of Contents Settings"
+        },
+        {
+            "key": "maxLevel",
+            "title": "Maximum heading level",
+            "description": "Include headings up to this level in the TOC. Example: 3 → H1, H2, H3.",
+            "type": "string",
+            "default": "3",
+            "choices": ["1", "2", "3", "4", "5", "6"],
+            "required": true
+        },
+        {
+            "key": "tocMarker",
+            "title": "TOC marker line",
+            "description": "The line used to identify the start of the TOC block. Must start with '## ' so it is treated as a heading by NotePlan.",
+            "type": "string",
+            "default": "## __TOC__",
+            "required": true
+        },
+        {
+            "key": "bulletPrefix",
+            "title": "Bullet prefix",
+            "description": "String prepended to each TOC entry (between the tabs and the link). Default: '- '. Leave empty for no prefix.",
+            "type": "string",
+            "default": "- ",
+            "required": false
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "type": "heading",
+            "title": "Debugging"
+        },
+        {
+            "key": "_logLevel",
+            "title": "Log Level",
+            "type": "string",
+            "choices": ["DEBUG", "INFO", "WARN", "ERROR", "none"],
+            "default": "INFO",
+            "required": true
+        }
+    ]
+}
