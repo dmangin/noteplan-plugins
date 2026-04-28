@@ -42,7 +42,7 @@ Inserts or refreshes a clickable Table of Contents at the top of the current not
 ## Install (manual)
 
 1. NotePlan → Preferences → Plugins → **Open Plugins Folder**
-2. Copy (or symlink) the `dmangin.TableOfContents/` folder into it.
+2. Copy the `dmangin.TableOfContents/` folder into it.
 3. Restart NotePlan (or reload plugins).
 4. Trigger the command from the Command Bar (`⌘ + J`, then type `toc`).
 
